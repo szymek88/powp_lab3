@@ -14,6 +14,7 @@ import edu.iis.powp.app.Application;
 import edu.iis.powp.app.Context;
 import edu.iis.powp.app.DriverManager;
 import edu.iis.powp.appext.ApplicationWithDrawer;
+import edu.iis.powp.command.ShapeFactory;
 import edu.iis.powp.events.predefine.SelectChangeVisibleOptionListener;
 import edu.iis.powp.events.predefine.SelectTestFigureOptionListener;
 import edu.kis.powp.drawer.panel.DefaultDrawerFrame;
@@ -36,6 +37,12 @@ public class TestPlotSoftPatterns
 		context.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		context.addTest("Figure Joe 2", (ActionEvent e) -> {
 			FiguresJoe.figureScript2(Application.getComponent(DriverManager.class).getCurrentPlotter());
+		});
+		context.addTest("Rectangle", (ActionEvent e) -> {
+			ShapeFactory.getRectangleCommand().execute(Application.getComponent(DriverManager.class).getCurrentPlotter());
+		});
+		context.addTest("Triangle", (ActionEvent e) -> {
+			ShapeFactory.getTriangleeCommand().execute(Application.getComponent(DriverManager.class).getCurrentPlotter());
 		});
 	}
 
